@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./styles/style.css">
+        <style type="text/css">
+            body { font-family: Calibri, sans-serif; }
+            #container { text-align: center }
+            table { border-collapse: collapse; font-size: 2em; margin: 0 auto; }
+            colgroup, tbody { border: solid medium; }
+            td { border: solid thin; height: 1.4em; width: 1.4em; text-align: center; padding: 0; }
+            button { margin-top: 10px; font-size: 1.5em; }
+           
+        </style>
+        <script src="lib/jQuery/jQuery.js"></script>
+        <script src="src/EventEmitter.js"></script>
+        <script src="src/Board.js"></script>
+        <script src="src/BoardView.js"></script>
+        <script src="src/BoardController.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script>
+            window.addEventListener('load', () => {
+             model = new Board(),
+             view = new BoardView(model),
+             controller = new BoardController(model, view);
+           $('#root').append(view.render())
+     });
+        </script>
+     <div class="buttons">   
+     <button id="solve">Solve</button>
+     <button id="getPuzzle"> Generate </button>
+     <button id ="clear"> Clear </button>
+    
+    </div>      
+    </body>
+</html>
